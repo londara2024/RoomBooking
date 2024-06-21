@@ -1,0 +1,53 @@
+databaseChangeLog:
+  - changeSet:
+      id: 003_init_db_structure
+      author: daralon2020@gmail.com
+      changes:
+        - createTable:
+            tableName: payment_slip
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                  autoIncrement: true
+              - column:
+                  name: payment_id
+                  type: VARCHAR(220)
+              - column:
+                  name: total_price
+                  type: NUMERIC(14, 2)
+              - column:
+                  name: created_date
+                  type: TIMESTAMP
+              - column:
+                  name: status
+                  type: Integer
+              - column:
+                  name: booking_id
+                  type: BIGINT
+                  constraints:
+                    foreignKey:
+                      name: fk_payment_slip_booking_id
+                      referencedTableName: booking
+                      referencedColumnName: booking_id
+        - createTable:
+            tableName: booking_list
+            columns:
+              - column:
+                  name: booking_id
+                  type: BIGINT
+                  constraints:
+                    foreignKey:
+                      name: fk_booking_list_booking
+                      referencedTableName: booking
+                      referencedColumnName: booking_id
+              - column:
+                  name: room_id
+                  type: BIGINT
+                  constraints:
+                    foreignKey:
+                      name: fk_booking_list_room_id
+                      referencedTableName: room
+                      referencedColumnName: room_id

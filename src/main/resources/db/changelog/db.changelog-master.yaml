@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - include:
+      - file: db/changelog/001_init_db_structure.yml
+  - include:
+      - file: db/changelog/002_init_db_structure.yml
+  - include:
+      - file: db/changelog/003_init_db_structure.yml
+  - include:
+      - file: db/changelog/004_db_added_new_column.yml
+  - include:
+      - file: db/changelog/005_db_update_column.yml
+#  - include:
+#      - file: db/changelog/006_db_remove_column.yml

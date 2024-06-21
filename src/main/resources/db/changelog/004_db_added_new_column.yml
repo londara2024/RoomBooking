@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: 004_db_added_new_column
+      author: daralon2020@gmail.com
+      changes:
+        - addColumn:
+            tableName: booking_list
+            columns:
+              - column:
+                  name: status
+                  type: Integer

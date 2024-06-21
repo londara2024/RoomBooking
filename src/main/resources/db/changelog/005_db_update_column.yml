@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - changeSet:
+      id: 005_db_update_column
+      author: daralon2020@gmail.com
+      changes:
+        - modifyDataType:
+            tableName: room
+            columnName: room_number
+            newDataType: varchar(100)

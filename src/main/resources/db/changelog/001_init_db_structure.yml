@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001_init_db_structure
+      author: daralon2020@gmail.com
+      changes:
+        - createTable:
+            tableName: cart_book
+            columns:
+              - column:
+                  name: cart_id
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                  autoIncrement: true
+              - column:
+                  name: message
+                  type: VARCHAR(255)
+              - column:
+                  name: date_time
+                  type: TIMESTAMP

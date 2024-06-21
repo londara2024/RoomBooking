@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: 006_db_remove_column
+      author: daralon2020@gmail.com
+      changes:
+        - dropColumn:
+            tableName: room_type
+            columnName: price

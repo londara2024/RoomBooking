@@ -1,0 +1,95 @@
+databaseChangeLog:
+  - changeSet:
+      id: 002_init_db_structure
+      author: daralon2020@gmail.com
+      changes:
+        - createTable:
+            tableName: room_type
+            columns:
+              - column:
+                  name: type_id
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                  autoIncrement: true
+              - column:
+                  name: bed
+                  type: INTEGER
+              - column:
+                  name: bath
+                  type: INTEGER
+              - column:
+                  name: area
+                  type: VARCHAR(50)
+              - column:
+                  name: option
+                  type: VARCHAR(100)
+              - column:
+                  name: price
+                  type: NUMERIC(14, 2)
+              - column:
+                  name: status
+                  type: INTEGER
+        - createTable:
+            tableName: room
+            columns:
+              - column:
+                  name: room_id
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                  autoIncrement: true
+              - column:
+                  name: type_id
+                  type: BIGINT
+                  constraints:
+                    notNull: true
+                    foreignKey:
+                      name: fk_room
+                      referencedTableName: room
+                      referencedColumnName: type_id
+              - column:
+                  name: room_name
+                  type: VARCHAR(200)
+              - column:
+                  name: room_number
+                  type: INTEGER
+              - column:
+                  name: status
+                  type: INTEGER
+              - column:
+                  name: created_at
+                  type: DATETIME
+        - createTable:
+            tableName: booking
+            columns:
+              - column:
+                  name: booking_id
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                  autoIncrement: true
+              - column:
+                  name: customer_name
+                  type: VARCHAR(200)
+              - column:
+                  name: customer_email
+                  type: VARCHAR(200)
+              - column:
+                  name: customer_phone
+                  type: VARCHAR(200)
+              - column:
+                  name: customer_address
+                  type: VARCHAR(200)
+              - column:
+                  name: booking_price
+                  type: NUMERIC(14, 2)
+              - column:
+                  name: start_date
+                  type: DATETIME
+              - column:
+                  name: end_date
+                  type: DATETIME
+              - column:
+                  name: status
+                  type: INTEGER
