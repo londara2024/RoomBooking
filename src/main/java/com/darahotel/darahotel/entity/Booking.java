@@ -1,6 +1,7 @@
 package com.darahotel.darahotel.entity;
 
 import com.darahotel.darahotel.dto.request.BookingDTO;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -34,9 +35,11 @@ public class Booking {
     private BigDecimal bookingPrice;
 
     @Column(name = "start_date")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime startDate;
 
     @Column(name = "end_date")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime endDate;
 
     @Column(name = "status")

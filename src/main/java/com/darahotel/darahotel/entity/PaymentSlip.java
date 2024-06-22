@@ -1,6 +1,7 @@
 package com.darahotel.darahotel.entity;
 
 import com.darahotel.darahotel.utils.GenerateCodePayment;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -26,7 +27,17 @@ public class PaymentSlip {
     @Column(name = "total_price")
     private BigDecimal totalPrice;
 
+    @Column(name = "payment_price")
+    private BigDecimal paymentPrice;
+
+    @Column(name = "total_rooms")
+    private int totalRooms;
+
+    @Column(name = "total_date")
+    private int totalDate;
+
     @Column(name = "created_date")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createdDate;
 
     @Column(name = "status")

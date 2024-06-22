@@ -5,6 +5,7 @@ import com.darahotel.darahotel.entity.Booking;
 import com.darahotel.darahotel.exception.ResultNotFoundException;
 import com.darahotel.darahotel.repository.BookingRepository;
 import com.darahotel.darahotel.service.BookingService;
+import com.darahotel.darahotel.utils.ValidateObj;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -39,31 +40,32 @@ public class BookingServiceImpl implements BookingService {
     public Booking updateBooking(Long id, BookingDTO bookingDTO) {
         Booking booking = getBookingById(id);
 
-        if (bookingDTO.getCustomerName() != null) {
+        if ( ValidateObj.validateString(bookingDTO.getCustomerName()) ) {
             booking.setCustomerName(bookingDTO.getCustomerName());
         }
-        if (bookingDTO.getCustomerAddress() != null) {
+        if ( ValidateObj.validateString(bookingDTO.getCustomerAddress())) {
             booking.setCustomerAddress(bookingDTO.getCustomerAddress());
         }
-        if (bookingDTO.getCustomerEmail() != null) {
+        if ( ValidateObj.validateString(bookingDTO.getCustomerEmail()) ) {
             booking.setCustomerEmail(bookingDTO.getCustomerEmail());
         }
-        if (bookingDTO.getCustomerPhone() != null) {
+        if ( ValidateObj.validateString(bookingDTO.getCustomerPhone()) ) {
             booking.setCustomerPhone(bookingDTO.getCustomerPhone());
         }
-        if (bookingDTO.getBookingPrice() != null) {
+        if ( ValidateObj.validateBigDecimal(bookingDTO.getBookingPrice()) ) {
             booking.setBookingPrice(bookingDTO.getBookingPrice());
         }
-        if (bookingDTO.getStartDate() != null) {
+        if ( ValidateObj.validateLocalDateTime(bookingDTO.getStartDate()) ) {
             booking.setStartDate(bookingDTO.getStartDate());
         }
-        if (bookingDTO.getEndDate() != null) {
+        if ( ValidateObj.validateLocalDateTime(bookingDTO.getEndDate()) ) {
             booking.setEndDate(bookingDTO.getEndDate());
         }
-        if (!String.valueOf(bookingDTO.getStatus()).equals("")) {
+        if ( ValidateObj.validateInt(bookingDTO.getStatus()) ) {
             booking.setStatus(bookingDTO.getStatus());
         }
 
         return bookingRepository.save(booking);
     }
+
 }

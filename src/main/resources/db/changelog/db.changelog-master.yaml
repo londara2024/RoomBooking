@@ -10,4 +10,8 @@ databaseChangeLog:
   - include:
       - file: db/changelog/005_db_update_column.yml
 #  - include:
-#      - file: db/changelog/006_db_remove_column.yml
+#      - file: db/changelog/007_db_paymentslip_add_column.yml
+  - include:
+      - file: db/changelog/008_db_payment_add_column.yml
+  - include:
+      - file: db/changelog/009_db_payment_add_column.yml

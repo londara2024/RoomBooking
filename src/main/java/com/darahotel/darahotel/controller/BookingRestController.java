@@ -54,4 +54,17 @@ public class BookingRestController {
         return ResponseEntity.ok(response);
     }
 
+    @PutMapping("/update_booking/{id}")
+    public ResponseEntity<ApiBaseResponse<Booking>> updateBooking (@PathVariable("id") Long id,
+                                                                     @RequestBody BookingDTO bookingDTO) {
+        ApiBaseResponse<Booking> response = new ApiBaseResponse<>();
+        Booking booking = bookingService.updateBooking(id, bookingDTO);
+
+        response.setData(booking);
+        response.setStatus(HttpStatus.OK);
+        response.setMessage("success");
+
+        return ResponseEntity.ok(response);
+    }
+
 }
