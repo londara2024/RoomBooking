@@ -15,8 +15,10 @@ spring:
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.yaml
     enabled: true
-  jackson:
-    date-format: yyyy-MM-dd HH:mm:ss
+#  jackson:
+#    date-format: yyyy-MM-dd HH:mm:ss
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+    format:
+      date-time: yyyy-MM-dd HH:mm:ss

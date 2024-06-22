@@ -9,6 +9,5 @@ public interface BookingService {
     Booking booking(BookingDTO bookingDTO);
     List<Booking> bookList();
     Booking getBookingById(Long id);
-
     Booking updateBooking(Long id, BookingDTO bookingDTO);
 }

@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: 007_db_payemntslip_add_column
+      author: daralon2020@gmail.com
+      changes:
+        - addColumn:
+            tableName: payment_slip
+            columns:
+              - column:
+                  name: payment_price
+                  type: NUMERIC(14, 2)
