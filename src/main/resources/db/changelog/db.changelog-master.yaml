@@ -15,3 +15,7 @@ databaseChangeLog:
       - file: db/changelog/008_db_payment_add_column.yml
   - include:
       - file: db/changelog/009_db_payment_add_column.yml
+  - include:
+      - file: db/changelog/011_init_db_user_security.yml
+  - include:
+      - file: db/changelog/012_db_update_user_column.yml

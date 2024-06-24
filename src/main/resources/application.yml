@@ -14,7 +14,7 @@ spring:
       dialect:  org.hibernate.dialect.PostgreSQLDialect
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.yaml
-    enabled: true
+    enabled: false
 #  jackson:
 #    date-format: yyyy-MM-dd HH:mm:ss
   mvc:
@@ -22,3 +22,8 @@ spring:
       matching-strategy: ant_path_matcher
     format:
       date-time: yyyy-MM-dd HH:mm:ss
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+    url: http://localhost:8080/v3/api-docs

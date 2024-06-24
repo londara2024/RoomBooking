@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - changeSet:
+      id: 012_db_update_user_column
+      author: daralon2020@gmail.com
+      changes:
+        - modifyDataType:
+            tableName: user
+            columnName: password
+            newDataType: varchar(225)

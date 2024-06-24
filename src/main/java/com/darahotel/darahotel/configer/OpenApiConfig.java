@@ -26,6 +26,7 @@ import org.springframework.context.annotation.Configuration;
                 @Server(url = "http://localhost:8080", description = "Local server")
         },
         security = @SecurityRequirement(name = "bearerAuth")
+//        security = @SecurityRequirement(name = "JWT")
 )
 @SecurityScheme(
         name = "bearerAuth",
@@ -38,7 +39,7 @@ public class OpenApiConfig {
     public GroupedOpenApi publicApi() {
         return GroupedOpenApi.builder()
                 .group("public")
-                .pathsToMatch("/api/**")
+                .pathsToMatch("/**")
                 .build();
     }
 
